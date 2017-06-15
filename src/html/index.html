@@ -11,6 +11,20 @@
 <body ng-app="methodPrompterApp">
 <div class="container" ng-controller="mainCtrl as mainCtrl">
 
+    <div class="panel panel-body">
+        <span ng-repeat="method in mainCtrl.getMethods()">{{ method.name }}: {{ method.numPlaceBells + 1}}</span>
+        <div>
+            <input type="text" ng-model="mainCtrl.newMethod"/>
+            <input type="text" ng-model="mainCtrl.stage"/>
+            <select ng-model="mainCtrl.stage"
+                    ng-options="value for (key, value) in mainCtrl.stages">
+            </select>
+
+
+            <button class="btn btn-primary" ng-click="mainCtrl.addMethod()">Add</button>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
