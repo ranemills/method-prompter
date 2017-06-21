@@ -43,12 +43,25 @@ module.exports = function (grunt) {
         cwd: 'src/html',
         src: '**',
         dest: 'dist/'
+      },
+      resources: {
+        expand: true,
+        cwd: 'src/resources',
+        src: '**',
+        dest: 'dist/'
       }
     },
     watch: {
       scripts: {
         files: ['src/scripts/app.js'],
         tasks: ['babel'],
+        options: {
+          livereload: true
+        }
+      },
+      resources: {
+        files: ['src/resources/*'],
+        tasks: ['copy:resources'],
         options: {
           livereload: true
         }
@@ -63,7 +76,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('default', ['babel', 'concat:js', 'concat:css', 'copy:html']);
+  grunt.registerTask('default', ['babel', 'concat:js', 'concat:css', 'copy']);
   grunt.registerTask('serve', ['default', 'watch']);
 
 };
