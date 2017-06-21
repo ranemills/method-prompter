@@ -33,7 +33,9 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'dist/app.js': 'src/scripts/app.js'
+          'dist/app.js': 'src/scripts/app.js',
+          'dist/sw.js': 'src/scripts/sw.js',
+          'dist/serviceworker-cache-polyfill.js': 'src/scripts/serviceworker-cache-polyfill.js'
         }
       }
     },
@@ -53,7 +55,7 @@ module.exports = function (grunt) {
     },
     watch: {
       scripts: {
-        files: ['src/scripts/app.js'],
+        files: ['src/scripts/*.js'],
         tasks: ['babel'],
         options: {
           livereload: true
