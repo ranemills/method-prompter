@@ -11,17 +11,34 @@
 <body ng-app="methodPrompterApp">
 <div class="container" ng-controller="mainCtrl as mainCtrl">
 
-    <div class="panel panel-body">
-        <span ng-repeat="method in mainCtrl.getMethods()">{{ method.name }}: {{ method.numPlaceBells + 1}}</span>
-        <div>
-            <input type="text" ng-model="mainCtrl.newMethod"/>
-            <input type="text" ng-model="mainCtrl.stage"/>
-            <select ng-model="mainCtrl.stage"
-                    ng-options="value for (key, value) in mainCtrl.stages">
-            </select>
+    <div class="card">
+        <div class="card-header">Methods</div>
 
+        <div class="card-block">
+            <div class="form-inline">
 
-            <button class="btn btn-primary" ng-click="mainCtrl.addMethod()">Add</button>
+                <div class="input-group">
+                    <label class="mr-sm-2" for="method-name">Method Name</label>
+                    <input id="method-name" type="text" ng-model="mainCtrl.newMethod" class="form-control mr-sm-2"/>
+                </div>
+                <div class="input-group">
+                    <label class="mr-sm-2" for="method-stage">Stage</label>
+                    <select ng-model="mainCtrl.stage"
+                            ng-options="key as value for (key, value) in mainCtrl.stages"
+                            id="method-stage"
+                            class="form-control mr-sm-2">
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" ng-click="mainCtrl.addMethod()">Add</button>
+            </div>
+        </div>
+        <div class="card-block text-center">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="method in mainCtrl.getMethods()">
+                    {{ method.name }} {{ mainCtrl.stages[method.numPlaceBells + 1]}}
+                </li>
+            </ul>
         </div>
     </div>
 

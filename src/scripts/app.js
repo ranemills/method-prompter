@@ -4,15 +4,15 @@ angular.module('methodPrompterApp', [])
   let mainCtrl = this;
 
   mainCtrl.$onInit = function() {
-    mainCtrl.newMethod = '';
-    mainCtrl.stage = 0;
-
     mainCtrl.stages = {
-      'Doubles': 5,
-      'Minor': 6,
-      'Triples': 7,
-      'Major': 8,
+      5: 'Doubles',
+      6: 'Minor',
+      7: 'Triples',
+      8: 'Major'
     };
+
+    mainCtrl.newMethod = '';
+    mainCtrl.stage = "5";
   };
 
   // Always one fewer place bells than number of bells ringing the method
@@ -27,7 +27,15 @@ angular.module('methodPrompterApp', [])
 })
 .service('combinationService', function() {
 
-  let methods = [];
+  let methods = [
+    {name: 'Cambridge', numPlaceBells: 5},
+    {name: 'York', numPlaceBells: 5},
+    {name: 'Bourne', numPlaceBells: 5},
+    {name: 'Beverley', numPlaceBells: 5},
+    {name: 'Surfleet', numPlaceBells: 5},
+    {name: 'London', numPlaceBells: 5},
+    {name: 'Norwich', numPlaceBells: 5}
+  ];
 
   // We assume that 1 is not a place bell that anyone wants to learn at the moment
   function addNewMethod(method, numPlaceBells)
