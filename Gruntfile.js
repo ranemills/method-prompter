@@ -15,13 +15,7 @@ module.exports = function (grunt) {
           'bower_components/tether/dist/js/tether.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
           'bower_components/angular/angular.js',
-          'bower_components/lodash/dist/lodash.js',
-          'bower_components/moment/min/moment.min.js',
-          'bower_components/angular-moment/angular-moment.min.js',
-          'bower_components/angular-timer/dist/angular-timer.js',
-          'bower_components/humanize-duration/humanize-duration.js',
-          'bower_components/chart.js/dist/Chart.js',
-          'bower_components/angular-chart.js/dist/angular-chart.min.js'
+          'bower_components/lodash/dist/lodash.js'
         ],
         dest: 'dist/third-party.js'
       },
